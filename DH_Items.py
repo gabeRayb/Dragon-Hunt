@@ -5,7 +5,7 @@
 class Item:
     name = ""
     desc = ""
-    sell_price = 0
+    sell_price = 0.0
     
     def __init__(self,name,desc,sell_price):
         self.name = name
@@ -16,9 +16,10 @@ class Item:
         print("Description: ", self.desc)
         print("Sell Price: ", self.sell_price)
 
-class Weapon(Item):
-    damage = 0
+class Offensive(Item):
+    damage = 0.0
+    # crit = 0.0
     
-class Armor(Item):
-    phys_def = 0
-    mag_def = 0
+    
+class Deffensive(Item):
+    armor = 0.0
