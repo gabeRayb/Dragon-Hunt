@@ -66,5 +66,5 @@ event = rand_events.roll_event()
 clr()
 event.display()
 p1.print_stats()
-
-test = input('Please type one of the 3 avaliable classes (Warrior, Mage, Rogue): ').capitalize()
+# def main():
+#     pass

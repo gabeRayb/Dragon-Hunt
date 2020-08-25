@@ -5,22 +5,21 @@ Project Name: Dragon Hunt
 
 This file holds the classes used for the combat system.
 """
-
-
+import DH_Abilities as abilities
 ############################### BATTLE SYSTEM ###############################
 def attack(attacker, defender):
     pass
 
-def defend(defender, attacker):
+def run_away():
     pass
 
-def use_ability(target, source):
-    pass
+def use_ability(target, source, ability):
+    if isinstance(ability,abilities.offensive):
+        target.health -= dmg_calc(target, source, ability)
+    # elif isinstance(ability,abilities.defensive):
+    #     source
 
-def use_item(target, source):
-    pass
-
-def dmg_calc():
-    return 
+def dmg_calc(target,ability,source):
+    return ((ability.dmg * source.dmg_mult) + source.attack) - ((target.defense/200)*ability.dmg)
 
 #############################################################################
