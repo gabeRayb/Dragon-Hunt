@@ -8,6 +8,22 @@ import sys
 import os
 import DH_Character_Creation as character
 import DH_Combat_System as battle
+from os import system,name
+import DH_Items as items
+import DH_Random_Events as rand_events
+import DH_Abilities as abilities
+
+
+#Clear the screen ------->From: https://www.geeksforgeeks.org/clear-screen-python/ <-------------
+def clr():
+    
+    #if os used is windows
+    if name == 'nt':
+        return system('cls')
+    
+    #if os used is mac of linux
+    else:
+        return system('clear')
 
 ############################## TITLE SCREEN ##############################
 
@@ -30,11 +46,11 @@ def title_selections(): # function to take the input from the user
             sys.exit()
 
 def title_screen(): # display the title screen for the user
-    os.system('clear')
+    clr()
     print('###########################')
     print('# Welcome to Dragon Hunt! #')
     print('###########################')
-    print('          - Play -')
+    print('          - Start -')
     print('          - Help -')
     print('          - Quit -')
     title_selections()
@@ -81,10 +97,24 @@ def create_character():
     if player_class == 'Rogue':
         player = character.rogue(name, race, player_class)
     
+    clr()
     player.info()
-    return 
+    return player
 
 def start_game():
     game_intro()
-    create_character()
+    player = create_character()
+    if isinstance(player,character.mage):
+        print("Here is a wand to start your journey.")
+        player.items.append(items.wand)
+        print("You received a wand!")
+        print("Items:")
+        player.display_items()
+        print("Here is a spell to start your journey.")
+        player.abilities.append(abilities.fireball)
+        print("You learned the Fireball ability!")
+        print("Abilities:")
+        player.display_abilities()
+        
+    event = rand_events.roll_event()
     
