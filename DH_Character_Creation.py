@@ -32,9 +32,9 @@ class wolf(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Wolf'
-        self.health = 70 * level
-        self.attack = np.random.randint(15,21) * level
-        self.defense = np.random.randint(20,26) * level
+        self.health = 70 * self.level
+        self.attack = np.random.randint(15,21) * self.level
+        self.defense = np.random.randint(20,26) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -48,7 +48,7 @@ class skeleton(basic_enemy):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Skeleton'
         self.items = []
-        self.health = 100 * level
+        self.health = 100 * self.level
         self.attack = 0
         self.defense = 0
 
@@ -67,9 +67,9 @@ class spider(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Poisonous Spider'
-        self.health = 50 * level
-        self.attack = np.random.randint(5,11) * level
-        self.defense = np.random.randint(10,16) * level
+        self.health = 50 * self.level
+        self.attack = np.random.randint(5,11) * self.level
+        self.defense = np.random.randint(10,16) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -82,9 +82,9 @@ class bear(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Enraged Bear'
-        self.health = 150 * level
-        self.attack = np.random.randint(20,26) * level
-        self.defense = np.random.randint(40,51) * level
+        self.health = 150 * self.level
+        self.attack = np.random.randint(20,26) * self.level
+        self.defense = np.random.randint(40,51) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -99,9 +99,9 @@ class wisp(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Wisp'
-        self.health = 120 * level
-        self.attack = np.random.randint(10,16) * level
-        self.defense = np.random.randint(15,21) * level
+        self.health = 120 * self.level
+        self.attack = np.random.randint(10,16) * self.level
+        self.defense = np.random.randint(15,21) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -110,12 +110,12 @@ class wisp(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
 
-def possessed_knight(basic_enemy):
+class possessed_knight(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Possessed Knight'
         self.items = []
-        self.health = 200 * level
+        self.health = 200 * self.level
         self.attack = 0
         self.defense = 0
             
@@ -130,12 +130,12 @@ def possessed_knight(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def elf_bandit(basic_enemy):
+class elf_bandit(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Elf Bandit'
         self.items = []
-        self.health = 140 * level
+        self.health = 140 * self.level
         self.attack = 0
         self.defense = 0
             
@@ -150,12 +150,12 @@ def elf_bandit(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def orc_bandit(basic_enemy):
+class orc_bandit(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)        
         self.name = 'Orc Bandit'
         self.items = []
-        self.health = 180 * level
+        self.health = 180 * self.level
         self.attack = 0
         self.defense = 0
             
@@ -170,12 +170,12 @@ def orc_bandit(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def goblin(basic_enemy):
+class goblin(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Goblin'
         self.items = []
-        self.health = 110 * level
+        self.health = 110 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -196,9 +196,9 @@ class animated_armor(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Animated Armor'
-        self.health = 200 * level
-        self.attack = np.random.randint(25,31) * level
-        self.defense = np.random.randint(40,51) * level
+        self.health = 200 * self.level
+        self.attack = np.random.randint(25,31) * self.level
+        self.defense = np.random.randint(40,51) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -211,9 +211,9 @@ class shield_guardian(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Shield Guardian'
-        self.health = 250 * level
-        self.attack = np.random.randint(20,36) * level
-        self.defense = np.random.randint(45,56) * level
+        self.health = 250 * self.level
+        self.attack = np.random.randint(20,36) * self.level
+        self.defense = np.random.randint(45,56) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -227,7 +227,7 @@ class guard(basic_enemy):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Corrupt Guard'
         self.items = []
-        self.health = 150 * level
+        self.health = 150 * self.level
         self.attack = 0
         self.defense = 0
 
@@ -242,12 +242,12 @@ class guard(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
 
-def shady_figure(basic_enemy):
+class shady_figure(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Shady Figure'
         self.items = []
-        self.health = 125 * level
+        self.health = 125 * self.level
         self.attack = 0
         self.defense = 0
 
@@ -262,12 +262,12 @@ def shady_figure(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
 
-def soulless_aristocrat(basic_enemy):
+class soulless_aristocrat(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Soulless Aristocrat'
         self.items = []
-        self.health = 135 * level
+        self.health = 135 * self.level
         self.attack = 0
         self.defense = 0
 
@@ -284,13 +284,13 @@ def soulless_aristocrat(basic_enemy):
 
 #### Village 4 Enemies ####
 
-def troll(basic_enemy):
+class troll(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Frost Troll'
-        self.health = 265 * level
-        self.attack = np.random.randint(30, 36) * level
-        self.defense = np.random.randint(35, 46) * level
+        self.health = 265 * self.level
+        self.attack = np.random.randint(30, 36) * self.level
+        self.defense = np.random.randint(35, 46) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -299,12 +299,12 @@ def troll(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
 
-def mountain_warrior(basic_enemy):
+class mountain_warrior(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Mountain Warrior'
         self.items = []
-        self.health = 245 * level
+        self.health = 245 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -319,12 +319,12 @@ def mountain_warrior(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def hermit(basic_enemy):
+class hermit(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Deranged Hermit'
         self.items = []
-        self.health = 230 * level
+        self.health = 230 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -339,12 +339,12 @@ def hermit(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def sorcerer(basic_enemy):
+class sorcerer(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Dark Sorcerer'
         self.items = []
-        self.health = 210 * level
+        self.health = 210 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -361,12 +361,12 @@ def sorcerer(basic_enemy):
         
 #### Village 5 Enemies ####
 
-def kobold(basic_enemy):
+class kobold(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Kobold'
         self.items = []
-        self.health = 270 * level
+        self.health = 270 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -381,13 +381,13 @@ def kobold(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def banshee(basic_enemy):
+class banshee(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Banshee'
-        self.health = 265 * level
-        self.attack = np.random.randint(30, 36) * level
-        self.defense = np.random.randint(35, 51) * level
+        self.health = 265 * self.level
+        self.attack = np.random.randint(30, 36) * self.level
+        self.defense = np.random.randint(35, 51) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -396,13 +396,13 @@ def banshee(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def crab(basic_enemy):
+class crab(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Giant Crab'
-        self.health = 325 * level
-        self.attack = np.random.randint(25, 36) * level
-        self.defense = np.random.randint(50, 66) * level
+        self.health = 325 * self.level
+        self.attack = np.random.randint(25, 36) * self.level
+        self.defense = np.random.randint(50, 66) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -411,13 +411,13 @@ def crab(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def shapeshifter(basic_enemy):
+class shapeshifter(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Shapeshifter'
-        self.health = np.random.randint(210, 301) * level
-        self.attack = np.random.randint(25, 46) * level
-        self.defense = np.random.randint(40, 56) * level
+        self.health = np.random.randint(210, 301) * self.level
+        self.attack = np.random.randint(25, 46) * self.level
+        self.defense = np.random.randint(40, 56) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -426,12 +426,12 @@ def shapeshifter(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def lake_dweller(basic_enemy):
+class lake_dweller(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Lake Dweller'
         self.items = []
-        self.health = 235 * level
+        self.health = 235 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -446,13 +446,13 @@ def lake_dweller(basic_enemy):
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         
-def water_devil(basic_enemy):
+class water_devil(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Water Devil'
-        self.health = 210 * level
-        self.attack = np.random.randint(40, 46) * level #(1.0 + level/10)
-        self.defense = np.random.randint(30,41) * level
+        self.health = 210 * self.level
+        self.attack = np.random.randint(40, 46) * self.level #(1.0 + level/10)
+        self.defense = np.random.randint(30,41) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -488,9 +488,9 @@ class mother_of_wolves(mini_boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Mother of Wolves'
-        self.health = 250 * level
-        self.attack = np.random.randint(30,36) * level
-        self.defense = np.random.randint(55,61) * level
+        self.health = 250 * self.level
+        self.attack = np.random.randint(30,36) * self.level
+        self.defense = np.random.randint(55,61) * self.level
             
     def print_stats(self):
         print('Enemy:', self.name)
@@ -506,7 +506,7 @@ class warchief(mini_boss):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Bandit Warchief'
         self.items = []
-        self.health = 450 * level
+        self.health = 450 * self.level
         self.attack = 0
         self.defense = 0
             
@@ -528,7 +528,7 @@ class centurion(mini_boss):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Dwarven Centurion'
         self.items = []
-        self.health = 450 * level
+        self.health = 450 * self.level
         self.attack = 0
         self.defense = 0
             
@@ -550,7 +550,7 @@ class giant(mini_boss):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Royal Giant'
         self.items = []
-        self.health = 450 * level
+        self.health = 450 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -567,13 +567,18 @@ class giant(mini_boss):
         
 #### Village 5 Mini Boss ####
 
-class hydra(mini_boss):
+class cultist_leader(mini_boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
-        self.name = 'Hydra'
-        self.health = 450 * level
-        self.attack = np.random.randint(40, 51) * level
-        self.defense = np.random.randint(65, 81) * level
+        self.name = 'Cultist Leader'
+        self.items = []
+        self.health = 450 * self.level
+        self.attack = 0
+        self.defense = 0
+        
+    def display_items(self):
+        for i in self.items:
+            print(i)
             
     def info(self):
         print('Enemy:', self.name)
@@ -584,7 +589,7 @@ class hydra(mini_boss):
         
 ######## Bosses ########
 
-def boss():
+class boss():
     def __init__(self, level = None, effects = None, abilites = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         self.level = 1
         self.effects = []
@@ -605,12 +610,12 @@ def boss():
         
 #### Village 1 Boss ####
 
-def revanent(boss):
+class revanent(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Revanent'
         self.items = []
-        self.health = 550 * level
+        self.health = 550 * self.level
         self.attack = 0
         self.defense = 0
         
@@ -627,13 +632,13 @@ def revanent(boss):
         
 #### Village 2 Boss ####
 
-def war_machine(boss):
+class war_machine(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'War Machine'
-        self.health = 550 * level
-        self.attack = np.random.randint(40, 61) * level
-        self.defense = np.random.randint(60, 71) * level
+        self.health = 550 * self.level
+        self.attack = np.random.randint(40, 61) * self.level
+        self.defense = np.random.randint(60, 71) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -652,9 +657,24 @@ def war_machine(boss):
 
 #### Village 5 Boss ####
 
+class hydra(mini_boss):
+    def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
+        super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
+        self.name = 'Hydra'
+        self.health = 550 * self.level
+        self.attack = np.random.randint(45, 56) * self.level
+        self.defense = np.random.randint(65, 81) * self.level
+            
+    def info(self):
+        print('Enemy:', self.name)
+        super().info()
+        print('Health:', self.health)
+        print('Attack:', self.attack)
+        print('Defense:', self.defense)
+
 #### Final Boss ####
 
-def world_breaker(boss):
+class world_breaker(boss):
     pass        
 
 ###############################################################################
