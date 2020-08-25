@@ -21,7 +21,8 @@ class basic_enemy:
 
     def display_abilities(self):
         for i in self.abilities:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Level:', self.level)
@@ -54,7 +55,8 @@ class skeleton(basic_enemy):
 
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Enemy:', self.name)
@@ -121,7 +123,8 @@ class possessed_knight(basic_enemy):
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -141,7 +144,8 @@ class elf_bandit(basic_enemy):
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -161,7 +165,8 @@ class orc_bandit(basic_enemy):
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -181,7 +186,8 @@ class goblin(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -233,7 +239,8 @@ class guard(basic_enemy):
 
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Enemy:', self.name)
@@ -253,7 +260,8 @@ class shady_figure(basic_enemy):
 
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Enemy:', self.name)
@@ -273,7 +281,8 @@ class soulless_aristocrat(basic_enemy):
 
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Enemy:', self.name)
@@ -310,7 +319,8 @@ class mountain_warrior(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -330,7 +340,8 @@ class hermit(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -350,7 +361,8 @@ class sorcerer(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -372,7 +384,8 @@ class kobold(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -437,7 +450,8 @@ class lake_dweller(basic_enemy):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -477,7 +491,8 @@ class mini_boss():
     
     def display_abilities(self):
         for i in self.abilities:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Level:', self.level)
@@ -512,7 +527,8 @@ class warchief(mini_boss):
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -534,7 +550,8 @@ class centurion(mini_boss):
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
         
     def info(self):
         print('Enemy:', self.name)
@@ -556,7 +573,8 @@ class giant(mini_boss):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -578,7 +596,8 @@ class cultist_leader(mini_boss):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -603,17 +622,18 @@ class boss():
     
     def display_abilities(self):
         for i in self.abilities:
-            print(i)
+            i.display()
+            print('\n')
 
     def info(self):
         print('Level:', self.level)
         
 #### Village 1 Boss ####
 
-class revanent(boss):
+class revenant(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
-        self.name = 'Revanent'
+        self.name = 'Revenant'
         self.items = []
         self.health = 550 * self.level
         self.attack = 0
@@ -621,7 +641,8 @@ class revanent(boss):
         
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Enemy:', self.name)
@@ -649,11 +670,37 @@ class war_machine(boss):
 
 #### Village 3 Boss ####
 
-
+class greed_demon(boss):
+    def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
+        super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
+        self.name = 'Embodiment of Greed'
+        self.health = 550 * self.level
+        self.attack = np.random.randint(50, 61) * self.level
+        self.defense = np.random.randint(55, 66) * self.level
+            
+    def info(self):
+        print('Enemy:', self.name)
+        super().info()
+        print('Health:', self.health)
+        print('Attack:', self.attack)
+        print('Defense:', self.defense)
 
 #### Village 4 Boss ####
 
-
+class monstrosity(boss):
+    def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
+        super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
+        self.name = 'Flesh Monstrosity'
+        self.health = 550 * self.level
+        self.attack = np.random.randint(65, 76) * self.level
+        self.defense = np.random.randint(70, 86) * self.level
+            
+    def info(self):
+        print('Enemy:', self.name)
+        super().info()
+        print('Health:', self.health)
+        print('Attack:', self.attack)
+        print('Defense:', self.defense)
 
 #### Village 5 Boss ####
 
@@ -675,7 +722,24 @@ class hydra(mini_boss):
 #### Final Boss ####
 
 class world_breaker(boss):
-    pass        
+    def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, action = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
+        super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
+        self.name = 'World Breaker'
+        self.health = 750 * self.level
+        self.attack = 0
+        self.defense = 0
+            
+    def display_items(self):
+        for i in self.items:
+            i.display()
+            print('\n')
+            
+    def info(self):
+        print('Enemy:', self.name)
+        super().info()
+        print('Health:', self.health)
+        print('Attack:', self.attack)
+        print('Defense:', self.defense)
 
 ###############################################################################
 
@@ -695,11 +759,13 @@ class player_setUp: # Base class for setting up a character
         
     def display_abilities(self):
         for i in self.abilities:
-            print(i)
+            i.display()
+            print('\n')
             
     def display_items(self):
         for i in self.items:
-            print(i)
+            i.display()
+            print('\n')
             
     def info(self):
         print('Name:', self.name)
