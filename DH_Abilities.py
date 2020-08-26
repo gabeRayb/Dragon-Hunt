@@ -24,6 +24,10 @@ class offensive(ability):
         super().display()
         print("Dmg:", self.dmg)
         print("Effect:", self.effect)
+    def battle_display(self):
+        print("Name:",self.name)
+        print("Damage:",self.dmg)
+        print("Mana cost:",self.r_cost)
         
 class defensive(ability):
      def __init__(self, name, description, r_cost, price, stat, buff):

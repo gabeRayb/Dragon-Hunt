@@ -42,10 +42,10 @@ class mini_boss(event):
     def __init__(self,name,chapter,m_b=None):
         super().__init__(name)
         self.chapter = chapter
-        self.m_b = mini_bosses[f"ch{chapter}"]
+        self.enemy = mini_bosses[f"ch{chapter}"]
     
     def display(self):
-        print(f"You encountered an {self.m_b.name}, the chapter mini boss!")
+        print(f"You encountered an {self.enemy.name}, the chapter mini boss!")
         # self.m_b.print_stats()
 
 events = [enemy_encounter("Enemy Encounter",1)]*5 + [mini_boss("Mini-boss Encounter",1)]*5

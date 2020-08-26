@@ -6,17 +6,15 @@ Project Name: Dragon Hunt
 This file is where the game will be ran from. 
 """
 
-import DH_Character_Creation as character
-import DH_Abilities as abilities
-import DH_Random_Events as rand_events
+# import DH_Character_Creation as character
+# import DH_Abilities as abilities
+# import DH_Random_Events as rand_events
 import DH_Title_Screen as ts
 # from os import system,name
 #import DH_Combat_System as battle
-
-
-
-def main():
-    ts.title_screen()
+ts.title_screen()
+# def main():
+#     ts.title_screen()
 
 
 

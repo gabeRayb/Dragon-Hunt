@@ -7,7 +7,7 @@ Authors: Johnnie Clark, Gabriel Rayburn
 import sys
 import os
 import DH_Character_Creation as character
-import DH_Combat_System as battle
+import DH_Combat_System as combat_sys
 from os import system,name
 import DH_Items as items
 import DH_Random_Events as rand_events
@@ -29,11 +29,11 @@ def clr():
 
 def title_selections(): # function to take the input from the user
     choice = input('> ').capitalize()
-    if choice == 'Start':
+    if choice == 'Start' or choice == 'S':
         start_game()
-    elif choice == 'Help':
+    elif choice == 'Help' or choice == 'H':
         help_menu()
-    elif choice == 'Quit':
+    elif choice == 'Quit' or choice == 'Q':
         sys.exit()
     while choice not in ['Start', 'Help', 'Quit']: # redisplay options if incorrect option is given by the user
         print('Please choose a valid option')
@@ -105,16 +105,19 @@ def start_game():
     game_intro()
     player = create_character()
     if isinstance(player,character.mage):
-        print("Here is a wand to start your journey.")
+        print("Here is a wand and ability to start your journey.")
+        
         player.items.append(items.wand)
         print("You received a wand!")
         print("Items:")
         player.display_items()
-        print("Here is a spell to start your journey.")
-        player.abilities.append(abilities.fireball)
+        
+        player.abilities[abilities.fireball.name] = abilities.fireball
         print("You learned the Fireball ability!")
         print("Abilities:")
         player.display_abilities()
         
     event = rand_events.roll_event()
+    combat_sys.battle(player,event)
+    
     
