@@ -15,16 +15,21 @@ class basic_enemy:
     def __init__(self, level = None, effects = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         self.level = 1
         self.effects = []
-        self.abilities = []
+        self.abilities = {}
         self.death_exp = 20
         self.base_gold_drop = 100
         self.gold_drop_mult = 1.0 + self.level/10
 
     def display_abilities(self):
         for i in self.abilities:
-            i.display()
+            self.abilities[i].display()
             print('\n')
             
+    def battle_display(self):
+        for i in self.abilities:
+            self.abilities[i].battle_display()
+            print('\n')
+        
     def calc_gold_drop(self):
         return (self.base_gold_drop*(self.gold_drop_mult+1.5)) + self.level
     
@@ -511,7 +516,7 @@ class mini_boss():
     def __init__(self, level = None, effects = None, abilites = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         self.level = 1
         self.effects = []
-        self.abilities = []
+        self.abilities = {}
         self.death_exp = 50
         self.base_gold_drop = 100
         self.gold_drop_mult = 1.0 + self.level/10
@@ -520,8 +525,13 @@ class mini_boss():
         return (self.base_gold_drop*(self.gold_drop_mult+1.5)) + self.level
     
     def display_abilities(self):
-        for i in self.abilities:
-            i.display()
+        for i in range(0, len(self.abilities)):
+            self.abilities[i].display()
+            print('\n')
+
+    def battle_display(self):
+        for i in range(0, len(self.abilities)):
+            self.abilities[i].battle_display()
             print('\n')
 
     def info(self):
@@ -650,7 +660,7 @@ class boss():
     def __init__(self, level = None, effects = None, abilites = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         self.level = 1
         self.effects = []
-        self.abilities = []
+        self.abilities = {}
         self.death_exp = 100
         self.base_gold_drop = 100
         self.gold_drop_mult = 1.0 + self.level/10
@@ -659,8 +669,13 @@ class boss():
         return (self.base_gold_drop*(self.gold_drop_mult+2.0)) + self.level
     
     def display_abilities(self):
-        for i in self.abilities:
-            i.display()
+        for i in range(0, len(self.abilities)):
+            self.abilities[i].display()
+            print('\n')
+            
+    def battle_display(self):
+        for i in range(0, len(self.abilities)):
+            self.abilities[i].battle_display()
             print('\n')
 
     def info(self):
@@ -792,7 +807,7 @@ class player_setUp: # Base class for setting up a character
     def __init__(self, name, race, effects = None, curr_exp = None, needed_exp = None, level = None, action = None, abilities = None, items = None, gold = None):
         self.name = name
         self.race = race
-        self.abilities = []
+        self.abilities = {}
         self.effects = []
         self.items = []
         self.gold = 0
@@ -802,7 +817,12 @@ class player_setUp: # Base class for setting up a character
         
     def display_abilities(self):
         for i in self.abilities:
-            i.display()
+            self.abilities[i].display()
+            print('\n')
+            
+    def battle_display(self):
+        for i in self.abilities:
+            self.abilities[i].battle_display()
             print('\n')
             
     def display_items(self):
