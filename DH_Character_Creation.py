@@ -42,9 +42,9 @@ class wolf(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Wolf'
-        self.health = 70 * self.level
-        self.attack = np.random.randint(15,21) * self.level
-        self.defense = np.random.randint(20,26) * self.level
+        self.health = 37 * self.level
+        self.attack = np.random.randint(8,10) * self.level
+        self.defense = np.random.randint(3,5) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -54,13 +54,13 @@ class wolf(basic_enemy):
         print('Defense:', self.defense)
 
 class skeleton(basic_enemy):
-    scimitar = item.offensive('Scimitar', 'One handed sword, commonly used by the undead', 0, np.random.randint(20,26))
-    thick_bones = item.defensive('Thick Bones', 'This animated skeletons bones are more dense and stronger than normal bones.', 0, np.random.randint(30,36))
+    scimitar = item.offensive('Scimitar', 'One handed sword, commonly used by the undead', 0, np.random.randint(7,10))
+    thick_bones = item.defensive('Thick Bones', 'This animated skeletons bones are more dense and stronger than normal bones.', 0, np.random.randint(5,8))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Skeleton'
         self.items = [self.scimitar, self.thick_bones]
-        self.health = 100 * self.level
+        self.health = 45 * self.level
         self.attack = self.scimitar.dmg * self.level
         self.defense = self.thick_bones.armor * self.level
 
@@ -80,9 +80,9 @@ class spider(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Poisonous Spider'
-        self.health = 50 * self.level
-        self.attack = np.random.randint(5,11) * self.level
-        self.defense = np.random.randint(10,16) * self.level
+        self.health = 35 * self.level
+        self.attack = np.random.randint(5,9) * self.level
+        self.defense = np.random.randint(1,8) * self.level
 
     def info(self):
         print('Enemy:', self.name)
@@ -95,9 +95,9 @@ class bear(basic_enemy):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Enraged Bear'
-        self.health = 150 * self.level
-        self.attack = np.random.randint(20,26) * self.level
-        self.defense = np.random.randint(40,51) * self.level
+        self.health = 50 * self.level
+        self.attack = np.random.randint(10,12) * self.level
+        self.defense = np.random.randint(5,8) * self.level
 
     def info(self):
         print('Enemy:', self.name)

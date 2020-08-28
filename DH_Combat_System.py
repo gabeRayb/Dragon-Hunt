@@ -5,8 +5,8 @@ Project Name: Dragon Hunt
 
 This file holds the classes used for the combat system.
 """
-import DH_Abilities as abilities
 import numpy as np
+import DH_Abilities as abilities
 import DH_Title_Screen as ts
 ############################### BATTLE SYSTEM ###############################
 def battle(player, event):
@@ -18,14 +18,13 @@ def battle(player, event):
     print()
     
     while player.health > 0 and event.enemy.health > 0:
-        print("If you want to try running away, type 'run'. Otherwise,\n")
-        #Player attacks
-        print("Choose an ability:")
-        player.display_abilities()
-        ability_key = input(">").capitalize()
+        
         valid = False
         while not valid: #check if input is valid
-            ts.clr()
+            print("If you want to try running away, type 'run'. Otherwise,\n")
+            print("Choose an ability:")
+            player.display_abilities()
+            ability_key = input(">").capitalize()
             if ability_key == 'Run' or ability_key == 'R':
                 valid = True
                 if run_away():
@@ -45,25 +44,27 @@ def battle(player, event):
                 use_ability(event.enemy, player, player.abilities[ability_key])
                 print(f"You did {dmg} damage to the {event.enemy.name}!")
         
-            if event.enemy.health <= 0:
-                continue
-        enemy_dmg = enemy_dmg_calc(player,event.enemy)
+        if event.enemy.health <= 0:
+            continue
+        enemy_dmg = enemy_dmg_calc(player, event.enemy)
         player.health -= enemy_dmg
         print(f"The {event.enemy.name} attacked you, dealing {enemy_dmg} damage!")
         
         
-        
-        
+    input("Type anything to continue.")    
+    ts.clr()    
     if event.enemy.health <= 0:
-        if player.currExp + event.enemy.death_exp >= 100:
+        if player.curr_exp + event.enemy.death_exp >= 100:
             extra = player.experience + event.enemt.death_exp - 100
-            player.levelUp()
-            player.currExp = extra
+            player.level_up()
+            player.curr_exp = extra
         player.gold += event.enemy.base_gold_drop * event.enemy.gold_drop_mult    
-        return print(f"Victory! You were rewarded {event.enemy.base_gold_drop*event.enemy.gold_drop_mult} and {event.enemy.death_exp} experience.")
+        print(f"Victory! You were rewarded {event.enemy.base_gold_drop*event.enemy.gold_drop_mult} and {event.enemy.death_exp} experience.")
+        return input("Press enter to continue.")
     
     else:
         print("You died. Better luck next time..")
+        input("Press enter to continue.")
         return ts.title_screen()
     
     

@@ -105,7 +105,7 @@ def start_game():
     game_intro()
     player = create_character()
     if isinstance(player,character.mage):
-        print("Here is a wand and ability to start your journey.")
+        print("Here is a wand and some abilities to start your journey.")
         
         player.items.append(items.wand)
         print("You received a wand!")
@@ -114,10 +114,31 @@ def start_game():
         
         player.abilities[abilities.fireball.name] = abilities.fireball
         print("You learned the Fireball ability!")
-        print("Abilities:")
+        print("Abilities:\n")
         player.display_abilities()
-        
-    event = rand_events.roll_event()
-    combat_sys.battle(player,event)
+    print(f'''King of Steniara: 
+          Greetings {player.name}, I've summoned you here 
+          to ask for your aid. The King of Doriona has become corrupted and 
+          has taken control of the legendary dragon that lives in that region, 
+          Draxduin, in order to gain the power to rule the continent. As you 
+          know, Draxduin is the other spiritual half of Parthernax, the dragon 
+          that lives in our region. This has caused an imbalance in the world. 
+          Please {player.name}, I ask you to travel to the land of Doriona and 
+          bring an end to the imbalance!
+          
+          To get to the Kingom of Doriona, you must travel from village to 
+          village slaying the elite guards sent out by Doriona's King to take 
+          control of each village. Along the way you will encounter enemies 
+          who you need to slay in order to grow stronger and earn gold that 
+          you can spend at the village shops once you clear the town of evil.''')
+    input("Press enter to start your journey.")    
+    for i in range(1,6):
+        clr()
+        print(f"############## Chapter {i} ##############\n")
+        for j in range(1,11):
+            print(f"############## Event {j} of 10 ##############")
+            event = rand_events.roll_event(i)
+            input("Press enter to continue.")
+            combat_sys.battle(player,event)
     
     
