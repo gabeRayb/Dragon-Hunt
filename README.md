@@ -7,7 +7,7 @@ Hunt is an old-school styled game meant to be played in the command line as ther
 premise is that the world has been thrown off balance by a corrupt king and you, the player, are sent to put a stop  
 to the evil that has come over the continent.  
   
-To play this game, download all of the files listed, store then in the same directory, and run 'DH_Main.py".
+To play this game, download all of the files listed, store them in the same directory, and run 'DH_Main.py".
 
 
 ## License  
