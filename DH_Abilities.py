@@ -47,7 +47,7 @@ class defensive(ability):
 
 # Mage abilities
 fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 20)
-heal = defensive("Heal","Restores lost health points of caster.", 5, "health", 30,)
+heal = defensive("Heal","Restores lost health points of caster.", 5, "Health", 30,)
 
 #Skeleton Abilities
 # slash = offensive("Slash","Swings bladed weapon/claws at the enemy.",0, 10, "Bleed")

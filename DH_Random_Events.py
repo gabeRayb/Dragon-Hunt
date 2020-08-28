@@ -55,7 +55,7 @@ events = {"ch1":[],
           "ch5":[]}
 
 for i in range(1,6):
-    events[f"ch{i}"].append(mini_boss("Mini-boss Encounter",i))
+    # events[f"ch{i}"].append(mini_boss("Mini-boss Encounter",i))
     for j in range(8):
         events[f"ch{i}"].append(enemy_encounter("Enemy Encounter",i))
         

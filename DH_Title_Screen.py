@@ -38,11 +38,11 @@ def title_selections(): # function to take the input from the user
     while choice not in ['Start', 'Help', 'Quit']: # redisplay options if incorrect option is given by the user
         print('Please choose a valid option')
         choice = input('> ').capitalize()
-        if choice == 'Start':
+        if choice == 'Start' or choice == 'S':
             start_game()
-        elif choice == 'Help':
+        elif choice == 'Help' or choice == 'H':
             help_menu()
-        elif choice == 'Quit':
+        elif choice == 'Quit' or choice == 'Q':
             sys.exit()
 
 def title_screen(): # display the title screen for the user
@@ -113,6 +113,7 @@ def start_game():
         player.display_items()
         
         player.abilities[ability.fireball.name] = ability.fireball
+        player.abilities[ability.heal.name] = ability.heal
         print("You learned the Fireball ability!")
         print("Abilities:\n")
         player.display_abilities()
