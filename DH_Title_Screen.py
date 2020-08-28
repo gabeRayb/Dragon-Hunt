@@ -1,20 +1,18 @@
 """
 Created on Fri Aug  7 11:41:29 2020
-
 Authors: Johnnie Clark, Gabriel Rayburn
 """
 
 import sys
-import os
 import DH_Character_Creation as character
 import DH_Combat_System as combat_sys
 from os import system,name
-import DH_Items as items
-import DH_Random_Events as rand_events
-import DH_Abilities as abilities
+import DH_Items as item
+import DH_Random_Events as rand_event
+import DH_Abilities as ability
 
 
-#Clear the screen ------->From: https://www.geeksforgeeks.org/clear-screen-python/ <-------------
+#Clear the screen ------->From: https://www.geeksforgeeks.org/clear-screen-python/ <-------
 def clr():
     
     #if os used is windows
@@ -26,6 +24,7 @@ def clr():
         return system('clear')
 
 ############################## TITLE SCREEN ##############################
+# Title Screen -------> From: https://www.youtube.com/watch?v=xHPmXArK6Tg <-------
 
 def title_selections(): # function to take the input from the user
     choice = input('> ').capitalize()
@@ -107,12 +106,12 @@ def start_game():
     if isinstance(player,character.mage):
         print("Here is a wand and some abilities to start your journey.")
         
-        player.items.append(items.wand)
+        player.items.append(item.wand)
         print("You received a wand!")
         print("Items:")
         player.display_items()
         
-        player.abilities[abilities.fireball.name] = abilities.fireball
+        player.abilities[ability.fireball.name] = ability.fireball
         print("You learned the Fireball ability!")
         print("Abilities:\n")
         player.display_abilities()
@@ -137,8 +136,6 @@ def start_game():
         print(f"############## Chapter {i} ##############\n")
         for j in range(1,11):
             print(f"############## Event {j} of 10 ##############")
-            event = rand_events.roll_event(i)
+            event = rand_event.roll_event(i)
             input("Press enter to continue.")
             combat_sys.battle(player,event)
-    
-    
