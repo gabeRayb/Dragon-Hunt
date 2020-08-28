@@ -1,8 +1,6 @@
 """
 Created on Wed Aug  5 16:53:13 2020
-
 Authors: Johnnie Clark, Gabriel Rayburn
-
 This file houses the tools for creating abilities as well as the abilities
 themselves.
 """
@@ -24,7 +22,7 @@ class ability:
         print("Mana cost:", self.r_cost)
 class offensive(ability):
     """Offensive ability branch class"""
-    def __init__(self, name, description, r_cost, dmg, effect):
+    def __init__(self, name, description, r_cost, dmg):
         super().__init__(name, description, r_cost)
         self.dmg = dmg
         # self.effect = effect
@@ -46,7 +44,8 @@ class defensive(ability):
 #     def __init__(self, name, description, r_cost, price, effect):
 #         super().__init__(name, description, r_cost, price)
 #         self.effect = effect
-#Mage starter ability
+
+# Mage abilities
 fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 20)
 heal = defensive("Heal","Restores lost health points of caster.", 5, "health", 30,)
 
