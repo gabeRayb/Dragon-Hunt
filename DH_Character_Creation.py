@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Aug  5 16:53:13 2020
-
 Authors: Johnnie Clark, Gabriel Rayburn
 """
 import numpy as np
@@ -839,15 +838,17 @@ class player_setUp: # Base class for setting up a character
         
     def level_up(self):
         self.level += 1
-        self.health += 5
-        self.mana += 5
+        self.max_health += 5
+        self.max_mana += 5
         
 class mage(player_setUp): 
-    def __init__(self, name, race, player_class, health = None, mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
         self.health = 100
+        self.max_health = 100
         self.mana = 120
+        self.max_mana = 120
         self.dmg_mult = 1.0
         self.attack = 0
         self.defense = 0
@@ -855,18 +856,20 @@ class mage(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.health)
-        print('Mana:', self.mana)
+        print('Health:', self.max_health)
+        print('Mana:', self.max_mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
     
 class warrior(player_setUp):
-    def __init__(self, name, race, player_class, health = None, mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
         self.health = 120
+        self.max_health = 120
         self.mana = 80
+        self.max_mana = 80
         self.dmg_mult = 1.0
         self.attack = 0
         self.defense = 0
@@ -874,18 +877,20 @@ class warrior(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.health)
-        print('Mana:', self.mana)
+        print('Health:', self.max_health)
+        print('Mana:', self.max_mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
     
 class rogue(player_setUp):
-    def __init__(self, name, race, player_class, health = None, mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
         self.health = 80
+        self.max_health = 80
         self.mana = 100
+        self.max_mana = 100
         self.dmg_mult = 1.1
         self.attack = 0
         self.defense = 0
@@ -893,8 +898,8 @@ class rogue(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.health)
-        print('Mana:', self.mana)
+        print('Health:', self.max_health)
+        print('Mana:', self.max_mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
