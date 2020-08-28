@@ -546,7 +546,7 @@ class mother_of_wolves(mini_boss):
         self.attack = np.random.randint(30,36) * self.level
         self.defense = np.random.randint(55,61) * self.level
             
-    def print_stats(self):
+    def info(self):
         print('Enemy:', self.name)
         super().info()
         print('Health:', self.health)
@@ -856,8 +856,8 @@ class mage(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.max_health)
-        print('Mana:', self.max_mana)
+        print('Health:', self.health)
+        print('Mana:', self.mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
@@ -877,8 +877,8 @@ class warrior(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.max_health)
-        print('Mana:', self.max_mana)
+        print('Health:', self.health)
+        print('Mana:', self.mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
@@ -898,8 +898,8 @@ class rogue(player_setUp):
     def info(self):
         super().info()
         print('Class:', self.player_class)
-        print('Health:', self.max_health)
-        print('Mana:', self.max_mana)
+        print('Health:', self.health)
+        print('Mana:', self.mana)
         print('Attack:', self.attack)
         print('Defense:', self.defense)
         print('\n')
