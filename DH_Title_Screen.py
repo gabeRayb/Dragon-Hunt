@@ -10,6 +10,7 @@ from os import system,name
 import DH_Items as item
 import DH_Random_Events as rand_event
 import DH_Abilities as ability
+import copy as copy
 
 
 #Clear the screen ------->From: https://www.geeksforgeeks.org/clear-screen-python/ <-------
@@ -136,6 +137,8 @@ def start_game():
         print(f"############## Chapter {i} ##############\n")
         for j in range(1,11):
             print(f"############## Event {j} of 10 ##############")
+            player.mana = copy.copy(player.max_mana)#refill mana before event
+            print("Your mana was refilled.\n")
             event = rand_event.roll_event(i)
             input("Press enter to continue.")
             combat_sys.battle(player,event)

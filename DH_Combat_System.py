@@ -10,6 +10,8 @@ import DH_Abilities as abilities
 import DH_Title_Screen as ts
 ############################### BATTLE SYSTEM ###############################
 def battle(player, event):
+    temp_health = 0
+    temp_defense = 0
     ts.clr()
     event.display()
     event.enemy.info()
@@ -20,7 +22,8 @@ def battle(player, event):
     while player.health > 0 and event.enemy.health > 0:
         
         valid = False
-        while not valid: #check if input is valid
+        #check if input is valid
+        while not valid: 
             print("If you want to try running away, type 'run'. Otherwise,\n")
             print("Choose an ability:")
             player.display_abilities()
@@ -37,17 +40,25 @@ def battle(player, event):
                 print("That is not a valid input, please choose one of your abilities or try running.")
                 valid = False
                 continue
-            
+            elif player.abilities[ability_key].r_cost > player.mana:
+                # use_ability(event.enemy, player, player.abilities[ability_key]) == False:
+                valid = False
+                print("You don't have enough mana!")
+                continue
             else: 
                 valid = True
                 dmg = dmg_calc(event.enemy, player.abilities[ability_key], player)
                 use_ability(event.enemy, player, player.abilities[ability_key])
-                print(f"You did {dmg} damage to the {event.enemy.name}!")
         
         if event.enemy.health <= 0:
             continue
         enemy_dmg = enemy_dmg_calc(player, event.enemy)
         player.health -= enemy_dmg
+        ts.clr()
+        event.enemy.info()
+        print()
+        player.info()
+        print(f"You did {dmg} damage to the {event.enemy.name}!")
         print(f"The {event.enemy.name} attacked you, dealing {enemy_dmg} damage!")
         
         
@@ -75,8 +86,26 @@ def run_away():
 def use_ability(target, source, ability):
     if isinstance(ability,abilities.offensive):
         target.health -= dmg_calc(target, ability, source)
-    # elif isinstance(ability,abilities.defensive):
-    #     source
+        source.mana -= ability.r_cost
+    elif isinstance(ability,abilities.defensive):
+        source.mana -= ability.r_cost
+        #Abilities that heal
+        if ability.stat == "Health":
+            #Caps the heal at players max health
+            if (player.health + ability.val) > player.max_health:
+                heal = ability.val - ((player.health + ability.val) - player.max_health)
+            else:
+                heal = ability.val
+            player.health += heal
+        #Abilities that increase max health
+        if ability.stat == "Max Health":
+            temp_health += ability.val
+            player.max_health += ability.val
+            player.health += ability.val
+        #Abilities that increase defense
+        if ability.stat == "Defense":
+            temp_defense += ability.val
+            player.defense += ability.val
 
 def dmg_calc(target,ability,source):
     return ((ability.dmg * source.dmg_mult) + source.attack) - ((target.defense/200)*ability.dmg)
