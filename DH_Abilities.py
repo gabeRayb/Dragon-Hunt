@@ -27,11 +27,11 @@ class offensive(ability):
     def __init__(self, name, description, r_cost, dmg, effect):
         super().__init__(name, description, r_cost)
         self.dmg = dmg
-        self.effect = effect
+        # self.effect = effect
     def display(self):
         super().display()
         print("Dmg:", self.dmg)
-        print("Effect:", self.effect)
+        # print("Effect:", self.effect)
     def battle_display(self):
         print("Name:", self.name)
         print("Damage:", self.dmg)
@@ -47,7 +47,7 @@ class defensive(ability):
 #         super().__init__(name, description, r_cost, price)
 #         self.effect = effect
 #Mage starter ability
-fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 20, "Burn")
+fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 20)
 heal = defensive("Heal","Restores lost health points of caster.", 5, "health", 30,)
 
 #Skeleton Abilities
