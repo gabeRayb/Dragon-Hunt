@@ -12,8 +12,8 @@ To play this game, download all of the files listed, store then in the same dire
 ## Libraries
 
 
-## Code Operation Examples
-
+## Operation Examples
+![image](https://user-images.githubusercontent.com/56660181/91626176-b1a98d80-e961-11ea-8989-6f6bf419b1c9.png)
 
 ## License
   
