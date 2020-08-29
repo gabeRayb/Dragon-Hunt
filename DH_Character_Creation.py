@@ -5,6 +5,8 @@ Authors: Johnnie Clark, Gabriel Rayburn
 """
 import numpy as np
 import DH_Items as item
+import DH_Abilities as ability
+#from collections import deque
 
 ############################ ENEMY CHARACTER SETUP ############################
 
@@ -542,9 +544,9 @@ class mother_of_wolves(mini_boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Mother of Wolves'
-        self.health = 250 * self.level
-        self.attack = np.random.randint(30,36) * self.level
-        self.defense = np.random.randint(55,61) * self.level
+        self.health = 100 * self.level
+        self.attack = np.random.randint(18,22) * self.level
+        self.defense = np.random.randint(30,35) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -556,13 +558,13 @@ class mother_of_wolves(mini_boss):
 #### Village 2 Mini Boss ####
 
 class warchief(mini_boss):
-    beheader = item.offensive('Beheader', 'A special battle axe hand crafted by the greatest orc blacksmith specifically for the Warchief.', 0, np.random.randint(40, 46))
-    warchief_armor = item.defensive('Warchief Armor', 'Special armor hand crafted by the orcs greatest blacksmith. This armor is worn by the warchief.', 0, np.random.randint(55, 66))
+    beheader = item.offensive('Beheader', 'A special battle axe hand crafted by the greatest orc blacksmith specifically for the Warchief.', 0, np.random.randint(25, 28))
+    warchief_armor = item.defensive('Warchief Armor', 'Special armor hand crafted by the orcs greatest blacksmith. This armor is worn by the warchief.', 0, np.random.randint(33, 37))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Bandit Warchief'
         self.items = [self.beheader, self.warchief_armor]
-        self.health = 450 * self.level
+        self.health = 150 * self.level
         self.attack = self.beheader.dmg * self.level
         self.defense = self.warchief_armor.armor * self.level
             
@@ -581,13 +583,13 @@ class warchief(mini_boss):
 #### Village 3 Mini Boss ####
 
 class centurion(mini_boss):
-    centurion_hammer = item.offensive('Centurion Hammer', 'A sledgehammer crafted from dwarven metal specifically for dwarven constructs.', 0, np.random.randint(50,61))
-    metal_body = item.defensive('Metal Body', 'The body of this construct is made completely out of dwarven metal.', 0, np.random.randint(70, 76))
+    centurion_hammer = item.offensive('Centurion Hammer', 'A sledgehammer crafted from dwarven metal specifically for dwarven constructs.', 0, np.random.randint(29,32))
+    metal_body = item.defensive('Metal Body', 'The body of this construct is made completely out of dwarven metal.', 0, np.random.randint(38, 41))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Dwarven Centurion'
         self.items = [self.centurion_hammer, self.metal_body]
-        self.health = 450 * self.level
+        self.health =200 * self.level
         self.attack = self.centurion_hammer.dmg * self.level
         self.defense = self.metal_body.armor * self.level
             
@@ -606,13 +608,13 @@ class centurion(mini_boss):
 #### Village 4 Mini Boss ####
 
 class giant(mini_boss):
-    royal_club = item.offensive('Royal Club', 'A massive club passed down through generations in the royal family of the giant race.', 0, np.random.randint(60, 66))
-    thick_skin = item.defensive('Thick Skin', 'Giants do not really wear armor. Their skin is extremly thick and almost impenetrable.', 0, np.random.randint(80,86))
+    royal_club = item.offensive('Royal Club', 'A massive club passed down through generations in the royal family of the giant race.', 0, np.random.randint(30, 34))
+    thick_skin = item.defensive('Thick Skin', 'Giants do not really wear armor. Their skin is extremly thick and almost impenetrable.', 0, np.random.randint(40,43))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Royal Giant'
         self.items = [self.royal_club, self.thick_skin]
-        self.health = 450 * self.level
+        self.health = 250 * self.level
         self.attack = self.royal_club.dmg * self.level
         self.defense = self.thick_skin.armor * self.level
         
@@ -631,13 +633,13 @@ class giant(mini_boss):
 #### Village 5 Mini Boss ####
 
 class cultist_leader(mini_boss):
-    void_staff = item.offensive('Void Staff', 'Wooden staff used as a conduit to cast powerful spells. This staff is tainted by the void, giving it strong but dark power.', 0, np.random.randint(65, 70))
-    void_robe = item.defensive('Void Robe', 'Enchanted robe tainted by the void. Dark energy emenates.', 0, np.random.randint(75, 81))
+    void_staff = item.offensive('Void Staff', 'Wooden staff used as a conduit to cast powerful spells. This staff is tainted by the void, giving it strong but dark power.', 0, np.random.randint(35, 39))
+    void_robe = item.defensive('Void Robe', 'Enchanted robe tainted by the void. Dark energy emenates.', 0, np.random.randint(44, 48))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Cultist Leader'
         self.items = [self.void_staff, self.void_robe]
-        self.health = 450 * self.level
+        self.health = 300 * self.level
         self.attack = self.void_staff.dmg * self.level
         self.defense = self.void_robe.armor * self.level
         
@@ -683,13 +685,13 @@ class boss():
 #### Village 1 Boss ####
 
 class revenant(boss):
-    revenant_sword = item.offensive('Revenant Sword', 'A greatsword made from the void. Only the darkest of beings can wield this powerful weapon.', 0, np.random.randint(75, 86))
-    revenant_armor = item.defensive('Revenant Armor', 'Armor created from the void. You can see the evil emenating from the surface of the armor.', 0, np.random.randint(90,96))
+    revenant_sword = item.offensive('Revenant Sword', 'A greatsword made from the void. Only the darkest of beings can wield this powerful weapon.', 0, np.random.randint(18, 21))
+    revenant_armor = item.defensive('Revenant Armor', 'Armor created from the void. You can see the evil emenating from the surface of the armor.', 0, np.random.randint(30,34))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Revenant'
         self.items = [self.revenant_sword, self.revenant_armor]
-        self.health = 550 * self.level
+        self.health = 150 * self.level
         self.attack = self.revenant_sword.dmg * self.level
         self.defense = self.revenant_armor.armor * self.level
         
@@ -711,9 +713,9 @@ class war_machine(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'War Machine'
-        self.health = 550 * self.level
-        self.attack = np.random.randint(40, 61) * self.level
-        self.defense = np.random.randint(60, 71) * self.level
+        self.health = 200 * self.level
+        self.attack = np.random.randint(26, 30) * self.level
+        self.defense = np.random.randint(36, 41) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -728,9 +730,9 @@ class greed_demon(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Embodiment of Greed'
-        self.health = 550 * self.level
-        self.attack = np.random.randint(50, 61) * self.level
-        self.defense = np.random.randint(55, 66) * self.level
+        self.health = 250 * self.level
+        self.attack = np.random.randint(31, 35) * self.level
+        self.defense = np.random.randint(42, 46) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -745,9 +747,9 @@ class monstrosity(boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Flesh Monstrosity'
-        self.health = 550 * self.level
-        self.attack = np.random.randint(65, 76) * self.level
-        self.defense = np.random.randint(70, 86) * self.level
+        self.health = 300 * self.level
+        self.attack = np.random.randint(36, 40) * self.level
+        self.defense = np.random.randint(47, 51) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -762,9 +764,9 @@ class hydra(mini_boss):
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'Hydra'
-        self.health = 550 * self.level
-        self.attack = np.random.randint(45, 56) * self.level
-        self.defense = np.random.randint(65, 81) * self.level
+        self.health = 350 * self.level
+        self.attack = np.random.randint(42, 46) * self.level
+        self.defense = np.random.randint(50, 55) * self.level
             
     def info(self):
         print('Enemy:', self.name)
@@ -776,13 +778,13 @@ class hydra(mini_boss):
 #### Final Boss ####
 
 class world_breaker(boss):
-    the_reckoning = item.offensive('The Reckoning', 'One of the ancient weapons thought to be crafted by celestials. Originally belonged to one of the original founders of the 2 kingdoms and passed down through rulers.', 0, np.random.randint(90,96))
-    demon_hide = item.defensive('Demon Hide', 'Demonic energy has completely taken over the body, creating a sort of dark armor.', 0, np.random.randint(100,106))
+    the_reckoning = item.offensive('The Reckoning', 'One of the ancient weapons thought to be crafted by celestials. Originally belonged to one of the original founders of the 2 kingdoms and passed down through rulers.', 0, np.random.randint(50,55))
+    demon_hide = item.defensive('Demon Hide', 'Demonic energy has completely taken over the body, creating a sort of dark armor.', 0, np.random.randint(60,65))
     def __init__(self, name = None, level = None, health = None, attack = None, defense = None, effects = None, abilities = None, items = None, death_exp = None, base_gold_drop = None, gold_drop_mult = None):
         super().__init__(level, effects, abilities, death_exp, base_gold_drop, gold_drop_mult)
         self.name = 'World Breaker'
         self.items = [self.the_reckoning, self.demon_hide]
-        self.health = 750 * self.level
+        self.health = 400 * self.level
         self.attack = self.the_reckoning.dmg * self.level 
         self.defense = self.demon_hide.armor * self.level
             
@@ -806,7 +808,7 @@ class player_setUp: # Base class for setting up a character
     def __init__(self, name, race, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         self.name = name
         self.race = race
-        self.abilities = {}
+        self.abilities = {'Heal':ability.heal, 'Barrier':ability.barrier}
         self.effects = []
         self.items = []
         self.gold = 0
@@ -839,12 +841,20 @@ class player_setUp: # Base class for setting up a character
     def level_up(self):
         self.level += 1
         self.max_health += 5
+        self.health += 5
         self.max_mana += 5
+        self.dmg_mult += 0.1
+        
+        if self.level in [2,3,4,5,6,8,9,12]: # example look: locked_abilities = [meteor_shower, winter_beam, acid_spores, hail, impale, revitalize, daing_bolt, short_circuit]
+            new_ability = self.locked_abilities.pop()
+            self.abilities[new_ability.name] = new_ability
+            print("You've unlocked a new ability! New Ability:", new_ability.name)
         
 class mage(player_setUp): 
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 100
         self.max_health = 100
         self.mana = 120
@@ -863,9 +873,10 @@ class mage(player_setUp):
         print('\n')
     
 class warrior(player_setUp):
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 120
         self.max_health = 120
         self.mana = 80
@@ -884,9 +895,10 @@ class warrior(player_setUp):
         print('\n')
     
 class rogue(player_setUp):
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 80
         self.max_health = 80
         self.mana = 100

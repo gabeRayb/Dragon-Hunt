@@ -26,18 +26,34 @@ class defensive(item):
 #Mage starting item
 wand = offensive("Wand", "A wand given to those with no experience in magic.", 0, 10)
 
+#Warrior starting item
+axe = offensive("Axe", "An axe that seems to be used for nefarious purposes..", 0, 12)
+
+#Rogue starting item#
+dagger = offensive("Dagger", "A short, staby object.", 0, 14)
 # #First shop ################################################################
 cow_hide_tunic = defensive("Cow Hide Tunic", "Weak armor made from cows.", 5, 5)
 ghostly_vale = defensive("Ghostly Vale", "Ghost armor", 5, 5)
-thicc_winter_coat = defensive("Thick Winter Coat", "Keeps you warm.", 5, 5)
+thick_winter_coat = defensive("Thick Winter Coat", "Keeps you warm.", 5, 5)
 elven_lace_boots = defensive("Elven Lace Boots", "Cool lookin boots.", 5, 5)
 hidden_mist_cowl = defensive("Hidden Mist Cowl", "Good for hunting via bow and arrow.", 5, 5)
 #
 assassins_spectical = offensive("Assassin's Specticals", "They make you look real cool.", 7, 5)
-psychos_gloves = offensive("Psychos Gloves", "Wear these with your Michael Meyers costume.", 7, 5)
+psychos_gloves = offensive("Psycho's Gloves", "Wear these with your Michael Meyers costume.", 7, 5)
 bandits_hood = offensive("Bandit's Hood", "You have in itch to steal.", 7, 5)
 sharpened_stick = offensive("Sharpened Stick", "It's effective at poking.", 7, 5)
-cursed_medallion = offensive("Cursed Medallion", "A strange glowing jewelry.", 7, 5)
+cursed_medallion = offensive("Cursed Medallion", "A strange glowing jewelry.", 7, 5)\
+
+first_shop = {"Cow Hide Tunic": cow_hide_tunic, 
+              "Ghostly Vale": ghostly_vale, 
+              "Thick Winter Coat": thick_winter_coat, 
+              "Elven Lace Boots": elven_lace_boots, 
+              "Hidden Mist Cowl": hidden_mist_cowl,
+              "Assassin's Specticals": assassins_spectical, 
+              "Psycho's Gloves": psychos_gloves, 
+              "Bandit's Hood": bandits_hood, 
+              "Sharpened Stick": sharpened_stick,
+              "Cursed Medallion": cursed_medallion}
 ##############################################################################
 # #Second shop ###############################################################
 military_fatigues = defensive("Military Fatigues", "Where did you go?", 5, 5)
