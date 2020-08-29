@@ -89,13 +89,13 @@ def create_character():
     print('\n')
     
     if player_class == 'Warrior':
-        player = character.warrior(name, race, player_class)
+        player = character.warrior(name, race, player_class, ability.warrior_locked_abilities)
         
     if player_class == 'Mage':
-        player = character.mage(name, race, player_class)
+        player = character.mage(name, race, player_class, ability.mage_locked_abilities)
         
     if player_class == 'Rogue':
-        player = character.rogue(name, race, player_class)
+        player = character.rogue(name, race, player_class, ability.rogue_locked_abilities)
     
     clr()
     player.info()
@@ -105,18 +105,47 @@ def start_game():
     game_intro()
     player = create_character()
     if isinstance(player,character.mage):
-        print("Here is a wand and some abilities to start your journey.")
-        
+        print("Here is a wand and an ability to start your journey.")
+
         player.items.append(item.wand)
         print("You received a wand!")
         print("Items:")
         player.display_items()
         
         player.abilities[ability.fireball.name] = ability.fireball
-        player.abilities[ability.heal.name] = ability.heal
+
         print("You learned the Fireball ability!")
         print("Abilities:\n")
         player.display_abilities()
+    
+    if isinstance(player,character.warrior):
+        print("Here is a axe and an ability to start your journey.")
+
+        player.items.append(item.wand)
+        print("You received an axe!")
+        print("Items:")
+        player.display_items()
+        
+        player.abilities[ability.puncture.name] = ability.puncture
+
+        print("You learned the Puncture ability!")
+        print("Abilities:\n")
+        player.display_abilities()
+        
+    if isinstance(player,character.rogue):
+        print("Here is a dagger and an ability to start your journey.")
+
+        player.items.append(item.dagger)
+        print("You received a dagger!")
+        print("Items:")
+        player.display_items()
+        
+        player.abilities[ability.pierce.name] = ability.pierce
+
+        print("You learned the Pierce ability!")
+        print("Abilities:\n")
+        player.display_abilities()
+        
     print(f'''King of Steniara: 
           Greetings {player.name}, I've summoned you here 
           to ask for your aid. The King of Doriona has become corrupted and 
@@ -152,4 +181,3 @@ def start_game():
         combat_sys.battle(player, event)
         villages.villages[i].intro()
         villages.villages[i].sell_item(player)
-        
