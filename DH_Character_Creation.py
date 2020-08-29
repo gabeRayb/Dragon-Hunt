@@ -5,6 +5,8 @@ Authors: Johnnie Clark, Gabriel Rayburn
 """
 import numpy as np
 import DH_Items as item
+import DH_Abilities as ability
+#from collections import deque
 
 ############################ ENEMY CHARACTER SETUP ############################
 
@@ -806,7 +808,7 @@ class player_setUp: # Base class for setting up a character
     def __init__(self, name, race, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         self.name = name
         self.race = race
-        self.abilities = {}
+        self.abilities = {'Heal':ability.heal, 'Barrier':ability.barrier}
         self.effects = []
         self.items = []
         self.gold = 0
@@ -841,12 +843,18 @@ class player_setUp: # Base class for setting up a character
         self.max_health += 5
         self.health += 5
         self.max_mana += 5
-        self.mana += 5
+        self.dmg_mult += 0.1
+        
+        if self.level in [2,3,4,5,6,8,9,12]: # example look: locked_abilities = [meteor_shower, winter_beam, acid_spores, hail, impale, revitalize, daing_bolt, short_circuit]
+            new_ability = self.locked_abilities.pop()
+            self.abilities[new_ability.name] = new_ability
+            print("You've unlocked a new ability! New Ability:", new_ability.name)
         
 class mage(player_setUp): 
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 100
         self.max_health = 100
         self.mana = 120
@@ -865,9 +873,10 @@ class mage(player_setUp):
         print('\n')
     
 class warrior(player_setUp):
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 120
         self.max_health = 120
         self.mana = 80
@@ -886,9 +895,10 @@ class warrior(player_setUp):
         print('\n')
     
 class rogue(player_setUp):
-    def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
+    def __init__(self, name, race, player_class, locked_abilities, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):
         super().__init__(name, race, abilities, effects, items, gold, curr_exp, needed_exp, level)
         self.player_class = player_class
+        self.locked_abilities = locked_abilities
         self.health = 80
         self.max_health = 80
         self.mana = 100
