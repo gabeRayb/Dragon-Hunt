@@ -839,7 +839,9 @@ class player_setUp: # Base class for setting up a character
     def level_up(self):
         self.level += 1
         self.max_health += 5
+        self.health += 5
         self.max_mana += 5
+        self.mana += 5
         
 class mage(player_setUp): 
     def __init__(self, name, race, player_class, health = None, max_health = None, mana = None, max_mana = None, dmg_mult = None, attack = None, defense = None, effects = None, curr_exp = None, needed_exp = None, level = None, abilities = None, items = None, gold = None):

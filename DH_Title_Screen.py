@@ -11,7 +11,7 @@ import DH_Items as item
 import DH_Random_Events as rand_event
 import DH_Abilities as ability
 import copy as copy
-
+import DH_Villages as villages
 
 #Clear the screen ------->From: https://www.geeksforgeeks.org/clear-screen-python/ <-------
 def clr():
@@ -135,11 +135,21 @@ def start_game():
     input("Press enter to start your journey.")    
     for i in range(1,6):
         clr()
-        print(f"############## Chapter {i} ##############\n")
         for j in range(1,11):
+            print(f"############## Chapter {i} ##############\n")
             print(f"############## Event {j} of 10 ##############")
             player.mana = copy.copy(player.max_mana)#refill mana before event
             print("Your mana was refilled.\n")
             event = rand_event.roll_event(i)
             input("Press enter to continue.")
-            combat_sys.battle(player,event)
+            combat_sys.battle(player, event)
+        clr()
+        print(f'''You've reached {villages.villages[i].name} but it is being guarded by {rand_event.bosses[i].name}, the chapter boss! Defeated them to gain access to the village shop.''')
+        player.mana = copy.copy(player.max_mana)#refill mana before event
+        print("Your mana was refilled.\n")
+        input("Press enter to continue.")
+        event = rand_event.boss_events[f"ch{i}"]
+        combat_sys.battle(player, event)
+        villages.villages[i].intro()
+        villages.villages[i].sell_item(player)
+        

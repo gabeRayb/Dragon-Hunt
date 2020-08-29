@@ -25,6 +25,12 @@ mini_bosses = {"ch1":CC.mother_of_wolves(),
                "ch4":CC.giant(),
                "ch5":CC.cultist_leader()}
 
+#Boss for each chapter
+bosses = {1:CC.revenant(),
+          2:CC.war_machine(),
+          3:CC.greed_demon(),
+          4:CC.monstrosity(),
+          5:CC.hydra()}
 class event:
     def __init__(self, name, chapter):
         self.name = name
@@ -40,11 +46,15 @@ class enemy_encounter(event):
 class mini_boss(event):
     def __init__(self,name,chapter,enemy = None):
         super().__init__(name, chapter)
-        # self.chapter = chapter
         self.enemy = mini_bosses[f"ch{chapter}"]
     def display(self):
         print(f"You encountered an {self.enemy.name}, the chapter mini boss!")
-        # self.m_b.print_stats()
+class boss(event):
+    def __init__(self, name, chapter, enemy = None):
+        super().__init__(name, chapter)
+        self.enemy = bosses[chapter]
+    def display(self):
+        print(f"You encountered an {self.enemy.name}, the chapter boss!")
 def roll_event(chapter):
     return copy.deepcopy(np.random.choice(events[f"ch{chapter}"]))
 
@@ -53,19 +63,13 @@ events = {"ch1":[],
           "ch3":[],
           "ch4":[],
           "ch5":[]}
-
+boss_events = {"ch1":None,
+               "ch2":None,
+               "ch3":None,
+               "ch4":None,
+               "ch5":None}
 for i in range(1,6):
-    # events[f"ch{i}"].append(mini_boss("Mini-boss Encounter",i))
+    events[f"ch{i}"].append(mini_boss("Mini-boss Encounter",i))
+    boss_events[f"ch{i}"] = boss("Boss Encounter", i)
     for j in range(8):
         events[f"ch{i}"].append(enemy_encounter("Enemy Encounter",i))
-        
-
-# chapter_1 = [enemy_encounter("Enemy Encounter",1)]*8 + [mini_boss("Mini-boss Encounter",1)]*1
-# chapter_2 = [enemy_encounter("Enemy Encounter",2)]*8 + [mini_boss("Mini-boss Encounter",2)]*1
-# chapter_3 = [enemy_encounter("Enemy Encounter",3)]*8 + [mini_boss("Mini-boss Encounter",3)]*1
-# chapter_4 = [enemy_encounter("Enemy Encounter",4)]*8 + [mini_boss("Mini-boss Encounter",4)]*1
-# chapter_5 = [enemy_encounter("Enemy Encounter",5)]*8 + [mini_boss("Mini-boss Encounter",5)]*1
-
-
-    
-

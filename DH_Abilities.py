@@ -46,7 +46,7 @@ class defensive(ability):
 #         self.effect = effect
 
 # Mage abilities
-fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 20)
+fireball = offensive("Fireball", "Hurls a firey orb at the enemy.", 5, 1000)
 heal = defensive("Heal","Restores lost health points of caster.", 5, "Health", 30,)
 
 #Skeleton Abilities

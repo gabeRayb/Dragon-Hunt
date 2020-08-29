@@ -50,11 +50,11 @@ def battle(player, event):
                 if isinstance(player.abilities[ability_key],abilities.offensive):
                     valid = True
                     dmg = dmg_calc(event.enemy, player.abilities[ability_key], player)
-                    use_ability(event.enemy, player, player.abilities[ability_key])
+                    use_ability(event.enemy, player, player.abilities[ability_key], temp_health, temp_defense)
                     info = f"You did {dmg} damage to the {event.enemy.name}!"
                 else:
                     valid = True
-                    use_ability(event.enemy, player, player.abilities[ability_key])
+                    use_ability(event.enemy, player, player.abilities[ability_key], temp_health, temp_defense)
                     if player.abilities[ability_key].stat == "Health":
                         info = f"You restored {player.abilities[ability_key].val} health points!"
                     elif player.abilities[ability_key].stat == "Max Health":
@@ -97,7 +97,7 @@ def run_away():
     if np.random.randint(0,100) <= 34: return True
     else: return False
 
-def use_ability(target, source, ability):
+def use_ability(target, source, ability, temp_health, temp_defense):
     if isinstance(ability,abilities.offensive):
         target.health -= dmg_calc(target, ability, source)
         source.mana -= ability.r_cost
