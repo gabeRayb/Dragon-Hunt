@@ -59,7 +59,7 @@ def help_menu(): # display the help menu for the user
     print('###########################')
     print('# Welcome to Dragon Hunt! #')
     print('###########################')
-    print('- Type the action you want to make when prompted -')
+    print('- Inputs are case sensitive -')
     title_selections()
     
 ############################## RUNNING THE GAME ##############################
@@ -185,6 +185,11 @@ def start_game():
         input("Press enter to continue.")
         event = rand_event.boss_events[f"ch{i}"]
         combat_sys.battle(player, event)
+        extra = player.curr_exp
+        player.level_up()
+        player.curr_exp = extra
         clr()
         villages.villages[i].intro()
         villages.villages[i].sell_item(player)
+    print("Congratulations! You Won!")
+    start_game()
