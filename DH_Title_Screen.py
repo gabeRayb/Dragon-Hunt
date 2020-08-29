@@ -105,7 +105,7 @@ def start_game():
     game_intro()
     player = create_character()
     if isinstance(player,character.mage):
-        print("Here is a wand and an ability to start your journey.")
+        print("Here is a wand and some abilities to start your journey.")
 
         player.items.append(item.wand)
         print("You received a wand!")
@@ -115,11 +115,13 @@ def start_game():
         player.abilities[ability.fireball.name] = ability.fireball
 
         print("You learned the Fireball ability!")
+        print('You learned the Barrier ability!')
+        print('You learned the Heal ability!')
         print("Abilities:\n")
         player.display_abilities()
     
     if isinstance(player,character.warrior):
-        print("Here is a axe and an ability to start your journey.")
+        print("Here is an axe and some abilities to start your journey.")
 
         player.items.append(item.wand)
         print("You received an axe!")
@@ -129,11 +131,13 @@ def start_game():
         player.abilities[ability.puncture.name] = ability.puncture
 
         print("You learned the Puncture ability!")
+        print('You learned the Barrier ability!')
+        print('You learned the Heal ability!')
         print("Abilities:\n")
         player.display_abilities()
         
     if isinstance(player,character.rogue):
-        print("Here is a dagger and an ability to start your journey.")
+        print("Here is a dagger and some abilities to start your journey.")
 
         player.items.append(item.dagger)
         print("You received a dagger!")
@@ -143,6 +147,8 @@ def start_game():
         player.abilities[ability.pierce.name] = ability.pierce
 
         print("You learned the Pierce ability!")
+        print('You learned the Barrier ability!')
+        print('You learned the Heal ability!')
         print("Abilities:\n")
         player.display_abilities()
         
