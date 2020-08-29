@@ -155,37 +155,37 @@ rogue_locked_abilities.append(back_stab)
 # ######## Village 1 ########
 
 # Wolf Abilities
-wolf_abilities = []
-wolf_abilities.append(bite = offensive('Bite', 'Bite into the enemy.', 0, 12))
-wolf_abilities.append(scratch = offensive('Scratch', 'Scratch the enemy with claws.', 0, 15))
-wolf_abilities.append(howl = defensive('Howl', 'Increase damage.', 0, 'Attack', 5))
+# wolf_abilities = []
+# wolf_abilities.append(bite = offensive('Bite', 'Bite into the enemy.', 0, 12))
+# wolf_abilities.append(scratch = offensive('Scratch', 'Scratch the enemy with claws.', 0, 15))
+# wolf_abilities.append(howl = defensive('Howl', 'Increase damage.', 0, 'Attack', 5))
 
-# Skeleton Abilities & Goblin (Village 2)
-skel_abilities = []
-skel_abilities.append(slash = offensive("Slash","Swings bladed weapon/claws at the enemy.", 0, 10))
-skel_abilities.append(thrust = offensive('Thrust', 'Thrust your weapon at the enemy.', 0, 15))
+# # Skeleton Abilities & Goblin (Village 2)
+# skel_abilities = []
+# skel_abilities.append(slash = offensive("Slash","Swings bladed weapon/claws at the enemy.", 0, 10))
+# skel_abilities.append(thrust = offensive('Thrust', 'Thrust your weapon at the enemy.', 0, 15))
 
-# Spider Abilities
-spider_abilities = []
-spider_abilities.append(inject = offensive('Inject', 'Bite into the enemy, injecting venom.', 0, 10))
-spider_abilities.append(venemous_spray = offensive('Venemous Spray', 'Spray venom at the enemy.', 0, 12))
+# # Spider Abilities
+# spider_abilities = []
+# spider_abilities.append(inject = offensive('Inject', 'Bite into the enemy, injecting venom.', 0, 10))
+# spider_abilities.append(venemous_spray = offensive('Venemous Spray', 'Spray venom at the enemy.', 0, 12))
 
-# Bear Abilities
-bear_abilities = []
-bear_abilities.append(claw = offensive('Claw', 'Swipe at the enemy with massive claws.', 0, 10))
-bear_abilities.append(charge = offensive('Charge', 'Rush to attack the enemy at full speed.', 0, 15))
-bear_abilities.append(thick_coat = defensive('Thick Coat', 'Increase defense.', 0, 'Defense', 5))
-bear_abilities.append(forest_predator = defensive('Forest Predator', 'Increase Attack', 0, 'Attack', 5))
+# # Bear Abilities
+# bear_abilities = []
+# bear_abilities.append(claw = offensive('Claw', 'Swipe at the enemy with massive claws.', 0, 10))
+# bear_abilities.append(charge = offensive('Charge', 'Rush to attack the enemy at full speed.', 0, 15))
+# bear_abilities.append(thick_coat = defensive('Thick Coat', 'Increase defense.', 0, 'Defense', 5))
+# bear_abilities.append(forest_predator = defensive('Forest Predator', 'Increase Attack', 0, 'Attack', 5))
 
-# Mini Boss Abilities
-m_o_w_abilities = []
-m_o_w_abilities.append(devour = offensive('Devour', 'Clasp the enemy with massive jaws and ragdoll the enemy.', 0, 20))
-m_o_w_abilities.append(gut = offensive('Gut', 'Slash the enemy with massive claws.', 0, 25))
+# # Mini Boss Abilities
+# m_o_w_abilities = []
+# m_o_w_abilities.append(devour = offensive('Devour', 'Clasp the enemy with massive jaws and ragdoll the enemy.', 0, 20))
+# m_o_w_abilities.append(gut = offensive('Gut', 'Slash the enemy with massive claws.', 0, 25))
 
-# Boss Abilities
-revenant_abilities = []
-revenant_abilities.append(void_slash = offensive('Void Slash', 'Slash the enemy with the power of the void.', 0, 25))
-revenant_abilities.append(gag_order = offensive('Gag Order', 'Choke the life out of the enemy through power of the void.', 0, 30))
+# # Boss Abilities
+# revenant_abilities = []
+# revenant_abilities.append(void_slash = offensive('Void Slash', 'Slash the enemy with the power of the void.', 0, 25))
+# revenant_abilities.append(gag_order = offensive('Gag Order', 'Choke the life out of the enemy through power of the void.', 0, 30))
 
 # ######## Village 2 ########
 
