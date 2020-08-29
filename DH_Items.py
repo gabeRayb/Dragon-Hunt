@@ -31,7 +31,6 @@ axe = offensive("Axe", "An axe that seems to be used for nefarious purposes..", 
 
 #Rogue starting item
 dagger = offensive("Dagger", "A short, staby object.", 0, 14)
-
 # #First shop ################################################################
 cow_hide_tunic = defensive("Cow Hide Tunic", "Weak armor made from cows.", 5, 5)
 ghostly_vale = defensive("Ghostly Vale", "Ghost armor", 5, 5)
