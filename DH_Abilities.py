@@ -53,7 +53,7 @@ class defensive(ability):
 
 ####starting abilities####
 heal = defensive("Heal","Restores lost health points of caster.", 5, "Health", 30) # lvl 1
-barrier = defensive('Barrier', 'Temporarily increase the users defense.', 10, 'Defense', 30) # lvl 1
+barrier = defensive('Barrier', 'Temporarily increase the users defense.', 10, 'Defense', 5) # lvl 1
 ##########################
 
 revitalize = defensive('Revitalize', 'Increase your max health.', 20, 'Health', 50) # lvl 4
