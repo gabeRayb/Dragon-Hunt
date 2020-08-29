@@ -6,6 +6,7 @@ Authors: Johnnie Clark, Gabriel Rayburn
 """
 import DH_Items as all_items
 import DH_Title_Screen as ts
+import copy as copy
 ############################## VILLAGES & SHOPS ##############################
 
 class village():
@@ -19,6 +20,7 @@ class village():
         
     def display_items(self, player):
         ts.clr()
+        self.intro()
         print('''Here are the items I have to offer, just tell me the name of the item you wish to purchase and we can do business. If you're done shopping just type 'done'. (Case sensitive)''')
         print(f"Your gold: {player.gold}\n")
         for i in self.items:
@@ -50,7 +52,7 @@ class village():
 class west_lacdel(village):
     def __init__(self, items, name = None, shopkeeper = None):
         super().__init__(items)
-        self.items = all_items.first_shop
+        self.items = copy.deepcopy(all_items.first_shop)
         self.name = 'West Lacdel'
         self.shopkeeper = 'Bart Maxim'
     
@@ -64,6 +66,7 @@ class west_lacdel(village):
 class fort_aryndale(village):
     def __init__(self, items, name = None, shopkeeper = None):
         super().__init__(items)
+        self.items = copy.deepcopy(all_items.first_shop)
         self.name = 'Fort Aryndale'
         self.shopkeeper = 'Karla Van Hilton'
     
@@ -74,6 +77,7 @@ class fort_aryndale(village):
 class briwith(village):
     def __init__(self, items, name = None, shopkeeper = None):
         super().__init__(items)
+        self.items = copy.deepcopy(all_items.first_shop)
         self.name = 'Briwith'
         self.shopkeeper = 'Charley Markets'
     
@@ -84,6 +88,7 @@ class briwith(village):
 class savage_hills(village):
     def __init__(self, items, name = None, shopkeeper = None):
         super().__init__(items)
+        self.items = copy.deepcopy(all_items.first_shop)
         self.name = 'Savage Hills'
         self.shopkeeper = 'Brutus'
     
@@ -96,6 +101,7 @@ class savage_hills(village):
 class hadsoria(village):
     def __init__(self, items, name = None, shopkeeper = None):
         super().__init__(items)
+        self.items = copy.deepcopy(all_items.first_shop)
         self.name = 'Hadsoria'
         self.shopkeeper = "T'Aarik"
     

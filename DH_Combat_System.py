@@ -28,10 +28,15 @@ def battle(player, event):
             print("If you want to try running away, type 'run'. Otherwise,\n")
             print("Choose an ability:")
             player.display_abilities()
-            ability_key = input(">").capitalize()
+            ability_key = input(">")
             if ability_key == 'Run' or ability_key == 'R':
                 valid = True
                 if run_away():
+                    
+                    player.max_health -= temp_health
+                    if player.health > player.max_health:
+                        player.health == player. max_health
+                    player.defense -= temp_defense
                     print("You successfully escaped!")
                     return
                 else:
@@ -42,7 +47,6 @@ def battle(player, event):
                 valid = False
                 continue
             elif player.abilities[ability_key].r_cost > player.mana:
-                # use_ability(event.enemy, player, player.abilities[ability_key]) == False:
                 valid = False
                 print("You don't have enough mana!")
                 continue
@@ -77,6 +81,10 @@ def battle(player, event):
     input("Type anything to continue.")    
     ts.clr()    
     if event.enemy.health <= 0:
+        player.max_health -= temp_health
+        if player.health > player.max_health:
+            player.health == player. max_health
+        player.defense -= temp_defense
         if player.curr_exp + event.enemy.death_exp >= player.needed_exp:
             extra = player.curr_exp + event.enemy.death_exp - player.needed_exp
             player.level_up()
@@ -113,12 +121,13 @@ def use_ability(target, source, ability, temp_health, temp_defense):
             source.health += heal
         #Abilities that increase max health
         elif ability.stat == "Max Health":
-            # temp_health += ability.val
+            temp_health += ability.val
             source.max_health += ability.val
             source.health += ability.val
         #Abilities that increase defense
         elif ability.stat == "Defense":
-            # temp_defense += ability.val
+            temp_defense += ability.val
+            print("Temp Defense:", temp_defense)
             source.defense += ability.val
 
 def dmg_calc(target,ability,source):

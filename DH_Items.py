@@ -47,7 +47,7 @@ cursed_medallion = offensive("Cursed Medallion", "A strange glowing jewelry.", 7
 first_shop = {"Cow Hide Tunic": cow_hide_tunic, 
               "Ghostly Vale": ghostly_vale, 
               "Thick Winter Coat": thick_winter_coat, 
-              "Elven Lace Boosts": elven_lace_boots, 
+              "Elven Lace Boots": elven_lace_boots, 
               "Hidden Mist Cowl": hidden_mist_cowl,
               "Assassin's Specticals": assassins_spectical, 
               "Psycho's Gloves": psychos_gloves, 

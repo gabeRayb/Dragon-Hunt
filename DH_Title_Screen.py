@@ -185,5 +185,6 @@ def start_game():
         input("Press enter to continue.")
         event = rand_event.boss_events[f"ch{i}"]
         combat_sys.battle(player, event)
+        clr()
         villages.villages[i].intro()
         villages.villages[i].sell_item(player)
