@@ -26,6 +26,12 @@ class defensive(item):
 #Mage starting item
 wand = offensive("Wand", "A wand given to those with no experience in magic.", 0, 10)
 
+#Warrior starting item
+axe = offensive("Axe", "An axe that seems to be used for nefarious purposes..", 0, 12)
+
+#Rogue starting item
+dagger = offensive("Dagger", "A short, staby object.", 0, 14)
+
 # #First shop ################################################################
 cow_hide_tunic = defensive("Cow Hide Tunic", "Weak armor made from cows.", 5, 5)
 ghostly_vale = defensive("Ghostly Vale", "Ghost armor", 5, 5)
